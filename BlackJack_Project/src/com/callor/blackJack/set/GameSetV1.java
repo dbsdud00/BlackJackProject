@@ -1,24 +1,24 @@
-package com.callor.Rule;
+package com.callor.blackJack.set;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.callor.model.CardDto;
+import com.callor.blackJack.model.CardDto;
 
-public class GameSet {
+public class GameSetV1 {
 	
 	private List<List<String>> wholeCard = new ArrayList<>();
-		
-	private CardDto heartCard = new CardDto();
-	private CardDto diaCard = new CardDto();
-	private CardDto cloverCard = new CardDto();
-	private CardDto spadeCard = new CardDto();
-	
 	private String selectCard = "";
 	private int rndType;
 	private int rndNum;
 
 	public void gameSet() {
+		
+		CardDto heartCard = new CardDto();
+		CardDto diaCard = new CardDto();
+		CardDto cloverCard = new CardDto();
+		CardDto spadeCard = new CardDto();
+		
 		wholeCard.add(heartCard.newCard("Heart"));
 		wholeCard.add(diaCard.newCard("DiaCard"));
 		wholeCard.add(cloverCard.newCard("Clover"));

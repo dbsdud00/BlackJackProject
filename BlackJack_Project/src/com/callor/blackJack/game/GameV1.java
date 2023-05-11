@@ -1,6 +1,7 @@
-package com.callor.Game;
+package com.callor.blackJack.game;
 
-import com.callor.Rule.InGame;
+import com.callor.blackJack.set.InGame;
+import com.callor.blackJack.set.InGameV2;
 
 public class GameV1 {
 	public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class GameV1 {
 //			System.out.print(i+1+". "+test.drawCard()+" : ");
 //			System.out.println(test.scoreCheck());
 //		}
-		InGame game = new InGame();
+		InGame game = new InGameV2();
 		game.gameStart();
 		
 		

@@ -1,4 +1,4 @@
-package com.callor.model;
+package com.callor.blackJack.model;
 
 import java.util.ArrayList;
 import java.util.List;
