@@ -35,6 +35,15 @@ public class interfaceServiceV1 implements interfaceService {
 		System.out.println("*".repeat(31));
 		System.out.println();
 		
+		
+		
+		System.out.println("***  *     **   *** *  * ****  **   *** *  *");
+		System.out.println("*  * *    *  * *    * *    *  *  * *    * * ");
+		System.out.println("*  * * ");
+		
+		
+		
+		
 		System.out.println("블랙잭 게임을 시작합니다.");
 		
 		Scanner scan = new Scanner(System.in);
@@ -57,11 +66,13 @@ public class interfaceServiceV1 implements interfaceService {
 			
 			
 		}
+		System.out.println("\n게임을 종료합니다.");
 	}
 
 	@Override
 	public void gameEnd() {
 		// TODO Auto-generated method stub
+		
 		
 	}
 
