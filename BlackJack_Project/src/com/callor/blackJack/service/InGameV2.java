@@ -1,12 +1,30 @@
-package com.callor.blackJack.set;
+package com.callor.blackJack.service;
 
 import java.util.Scanner;
 
-public class InGameV3 extends InGameV2 {
+import com.callor.blackJack.model.PlayerDto;
+import com.callor.blackJack.set.GameSetV1;
 
+public class InGameV2 implements InGame{
+	
+	protected PlayerDto dealer;
+	protected PlayerDto gamer;
+	
+	protected GameSetV1 gameSet;
+	
+	public InGameV2() {
+		dealer = new PlayerDto();
+		gamer = new PlayerDto();
+		gameSet = new GameSetV1();
+		gameSet.gameSet();
+	}
+	
+	
 	public void gameStart() {
 		
 		Scanner scan = new Scanner(System.in);
+
+
 		
 		boolean gamerStop = true;
 		boolean dealerStop = true;
@@ -48,17 +66,15 @@ public class InGameV3 extends InGameV2 {
 					}
 					
 				}
-				
 				if (yesNo.equals("N")) {
 					break;
 				}
 
-				System.out.println(gameSet.drawCard());
+				System.out.println(gameSet.drawCard(gamer));
 				gamer.setScore(gamer.getScore() + gameSet.scoreCheck());
 				System.out.printf("게이머의 점수는 %d 점", gamer.getScore());
 				System.out.println();
 				System.out.println();
-				
 				if (gamer.getScore() > 21) {
 					winner = "딜러";
 					stop = false;
@@ -89,19 +105,15 @@ public class InGameV3 extends InGameV2 {
 	
 	private void dealerTurn() {
 		
-		System.out.println(gameSet.drawCard());
+		System.out.println(gameSet.drawCard(dealer));
 		dealer.setScore(dealer.getScore() + gameSet.scoreCheck());
 		System.out.printf("딜러의 점수는 %d 점", dealer.getScore());
 		System.out.println();
 		System.out.println("=".repeat(50));
-		
 	}
 	
-	private void choice() {
-		
-	}
-	private void gamerTurn() {
-		
-	}
+	
+
+	
 	
 }

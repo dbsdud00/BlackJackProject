@@ -1,4 +1,4 @@
-package com.callor.blackJack.set;
+package com.callor.blackJack.service;
 
 public interface InGame {
 	

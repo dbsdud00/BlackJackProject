@@ -1,8 +1,9 @@
-package com.callor.blackJack.set;
+package com.callor.blackJack.service;
 
 import java.util.Scanner;
 
 import com.callor.blackJack.model.PlayerDto;
+import com.callor.blackJack.set.GameSetV1;
 
 public class InGameV1 implements InGame{
 	private PlayerDto dealer;
@@ -31,7 +32,7 @@ public class InGameV1 implements InGame{
 		while (true) {
 
 			if (dealer.getScore() < 18) {
-				System.out.println(gameSet.drawCard());
+				System.out.println(gameSet.drawCard(dealer));
 				dealer.setScore(dealer.getScore() + gameSet.scoreCheck());
 				System.out.printf("딜러의 점수는 %d 점", dealer.getScore());
 				System.out.println();
@@ -78,7 +79,7 @@ public class InGameV1 implements InGame{
 				continue;
 			}
 
-			System.out.println(gameSet.drawCard());
+			System.out.println(gameSet.drawCard(gamer));
 			gamer.setScore(gamer.getScore() + gameSet.scoreCheck());
 			System.out.printf("게이머의 점수는 %d 점", gamer.getScore());
 			System.out.println();

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.callor.blackJack.model.CardDto;
+import com.callor.blackJack.model.PlayerDto;
 
 public class GameSetV1 {
 	
@@ -23,9 +24,10 @@ public class GameSetV1 {
 		wholeCard.add(diaCard.newCard("DiaCard"));
 		wholeCard.add(cloverCard.newCard("Clover"));
 		wholeCard.add(spadeCard.newCard("Spade"));
+		
 	}
 	
-	public String drawCard() {
+	public String drawCard(PlayerDto player) {
 		
 		while(true) {
 			try {
@@ -39,9 +41,9 @@ public class GameSetV1 {
 		}
 	
 		wholeCard.get(rndType).remove(rndNum);
+		player.addCardList(selectCard);
 		
 		return selectCard;
-		
 	}
 	
 	public int scoreCheck() {
@@ -60,11 +62,6 @@ public class GameSetV1 {
 				return 0;
 			}
 		}
-		
 		return intScore;
 	}
-	
-	
-	
-	
 }
