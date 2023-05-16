@@ -28,21 +28,16 @@ public class InGameV1 implements InGame {
 
 	public void gameStart() {
 
-		System.out.println("=".repeat(80));
-		System.out.println();
+		System.out.println("=".repeat(80)+ "\n");
 		System.out.println("먼저 딜러와 게이머는 카드를 두장 씩 뽑습니다.");
-		System.out.println();
-		System.out.println("-".repeat(50));
+		System.out.println("\n" + "-".repeat(50));
 
 		firstSet(dealer, "딜러");
-		System.out.println();
-		System.out.println("-".repeat(50));
+		System.out.println("\n" + "-".repeat(50));
 		firstSet(gamer, "게이머");
-		System.out.println();
-		System.out.println("=".repeat(50));
+		System.out.println("\n" + "=".repeat(50));
 		System.out.println("게임을 시작합니다.");
-		System.out.println("=".repeat(50));
-		System.out.println();
+		System.out.println("=".repeat(50) + "\n");
 
 		while (stop) {
 
@@ -79,13 +74,10 @@ public class InGameV1 implements InGame {
 				break;
 			}
 			
-			
 			if (winnerCheck()) {
 				continue;
 			}
 
-			
-			
 			if (!(dealerStop || gamerStop)) {
 
 				if (dealer.getScore() < gamer.getScore()) {
