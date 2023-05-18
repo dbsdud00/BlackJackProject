@@ -90,11 +90,13 @@ public class InGameV1 implements InGame {
 			}
 			break;
 		}
+		
 		System.out.println();
 		System.out.println("=".repeat(80));
 		System.out.println("게임이 종료되었습니다");
 		System.out.printf("**승자는 %s!**\n", winner);
 		System.out.println("=".repeat(80));
+
 	}
 
 	
@@ -157,6 +159,14 @@ public class InGameV1 implements InGame {
 		System.out.printf("** %s의 점수는 %d 점 **\n\n", player.getPlayerName(), player.getScore());
 		System.out.println("-".repeat(50));
 
+	}
+
+	@Override
+	public String printWinner() {
+
+		if (winner.equals(gamer.getPlayerName())) return "win";
+		else if(winner.equals(dealer.getPlayerName())) return "lose";
+		else return "drew";
 	}
 }
 
