@@ -11,7 +11,7 @@ public class CardCreate {
 	}
 	public List<String> newCard(String cardType) {
 		Card.add(String.format("%s A", cardType));
-		for (int i = 2; i< 10; i++ ) {
+		for (int i = 2; i< 11; i++ ) {
 			Card.add(String.format("%s %d", cardType,i));	
 		}
 		Card.add(String.format("%s K", cardType));

@@ -9,10 +9,15 @@ import com.callor.blackJack.utils.AnsiConsol;
 
 public class GameSetV1 implements GameSet {
 	
-	private List<List<String>> wholeCard = new ArrayList<>();
+	private List<List<String>> wholeCard;
 	private String selectCard = "";
 	private int rndType;
 	private int rndNum;
+	
+	public GameSetV1() {
+		// TODO Auto-generated constructor stub
+		wholeCard = new ArrayList<>();
+	}
 
 	public void cardSet() {
 		
