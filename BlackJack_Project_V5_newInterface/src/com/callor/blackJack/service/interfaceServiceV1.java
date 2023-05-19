@@ -9,6 +9,7 @@ public class interfaceServiceV1 implements interfaceService {
 	protected InGame inGame;
 	protected Scanner scan;
 	protected MoneyV1 money;
+	private int originMoney;
 
 	public interfaceServiceV1() {
 		scan = new Scanner(System.in);
@@ -33,7 +34,7 @@ public class interfaceServiceV1 implements interfaceService {
 		System.out.println("\n블랙잭 게임을 시작합니다.\n");
 
 		setTheMoney();
-
+		originMoney = money.getMoney();
 		while (true) {
 			inGame = new InGameV1();
 			System.out.println("\n게임을 시작합니다.\n");
@@ -49,11 +50,21 @@ public class interfaceServiceV1 implements interfaceService {
 			}
 			if (goNogo()) break;
 		}
-		System.out.println("\n블랙잭 게임을 종료합니다.");
+		
 	}
 	
-	
-	
+	@Override
+	public void gameEnd() {
+		if (originMoney>money.getMoney()) {
+			System.out.printf(AnsiConsol.YELLOW("%s$를 잃었습니다.\n"),originMoney-money.getMoney());
+		} else if (originMoney<money.getMoney()) {
+			System.out.printf(AnsiConsol.YELLOW("%s$를 땃습니다.\n"),money.getMoney()-originMoney);
+		} else if(originMoney==money.getMoney()) {
+			System.out.println(AnsiConsol.YELLOW("돈을 잃지 않았습니다."));
+		}
+		System.out.printf(AnsiConsol.YELLOW("소지금 : %d$"), money.getMoney());
+		System.out.println("\n블랙잭 게임을 종료합니다.");
+	}
 	
 	
 	
@@ -127,5 +138,7 @@ public class interfaceServiceV1 implements interfaceService {
 			}
 		}
 	}
+
+
 
 }

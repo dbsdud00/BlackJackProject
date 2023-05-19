@@ -9,7 +9,7 @@ public class GameV1 {
 
 		interfaceService test = new interfaceServiceV1();
 		test.gameStart();
-		
+		test.gameEnd();
 
 	}
 }

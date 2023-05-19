@@ -34,9 +34,9 @@ public class InGameV1 implements InGame {
 			System.out.println(Line.bLine(3));
 
 //			System.out.println(Line.sLine(50));
-			firstSet(dealer, "딜러");
+			firstSet(dealer);
 			System.out.println(Line.sLine(50));
-			firstSet(gamer, "게이머");
+			firstSet(gamer);
 			System.out.println(Line.sLine(50));
 			
 
@@ -97,6 +97,8 @@ public class InGameV1 implements InGame {
 			break;
 		}
 		
+		System.out.println(Line.bLine(5));
+		System.out.println("게임 결과\n");
 		System.out.println(Line.sLine(50) + "\n");
 		showDeck(dealer);
 		System.out.println(Line.sLine(50) + "\n");
@@ -106,9 +108,9 @@ public class InGameV1 implements InGame {
 		if (winner.isEmpty()) {
 
 			if (dealer.getScore() < gamer.getScore()) {
-				winner = "게이머";
+				winner = gamer.getPlayerName();
 			} else if (dealer.getScore() > gamer.getScore()) {
-				winner = "딜러";
+				winner = dealer.getPlayerName();
 			} else if (dealer.getScore() == gamer.getScore()) {
 				winner = "없습니다. 무승부";
 			}
@@ -143,7 +145,7 @@ public class InGameV1 implements InGame {
 		return false;
 	}
 
-	protected void firstSet(PlayerDto player, String name) {
+	protected void firstSet(PlayerDto player) {
 		System.out.println();
 		System.out.printf(" %s (%d점)\n", gameSet.drawCard(player), gameSet.scoreCheck());
 		player.setScore(player.getScore() + gameSet.scoreCheck());
@@ -151,7 +153,7 @@ public class InGameV1 implements InGame {
 		player.setScore(player.getScore() + gameSet.scoreCheck());
 		player.showList();
 		System.out.println();
-		System.out.printf("\n ** %s의 점수는 %d 점 **\n\n", name, player.getScore());
+		System.out.printf("\n ** %s의 점수는 %d 점 **\n\n", player.getPlayerName(), player.getScore());
 	}
 
 	protected boolean choice() {
